@@ -88,9 +88,9 @@ def is_mail(path):
     white_thresh = 200
 
     ## Get background values
-    r_arr = [im_data[pixel][0] for pixel in range(width * height) if in_border(pixel, 3)]
-    b_arr = [im_data[pixel][1] for pixel in range(width * height) if in_border(pixel, 3)]
-    g_arr = [im_data[pixel][2] for pixel in range(width * height) if in_border(pixel, 3)]
+    r_arr = [im_data[pixel][0] for pixel in range(width * height) if in_border(pixel, 2)]
+    b_arr = [im_data[pixel][1] for pixel in range(width * height) if in_border(pixel, 2)]
+    g_arr = [im_data[pixel][2] for pixel in range(width * height) if in_border(pixel, 2)]
 
     r_max = max(r_arr)
     r_min = min(r_arr)
@@ -131,7 +131,7 @@ if __name__ == "__main__":
     for directory in directories:
         for im_file in [f for f in os.listdir(directory) if os.path.isfile(os.path.join(directory, f))]:
             print(directory.upper() + ":", im_file, "\n" + "="*40)
-            #print(extract_text(directory + "\\" + im_file))
+            print(extract_text(directory + "\\" + im_file))
             is_mail(directory + "\\" + im_file)
             print("\n"*3)
     
